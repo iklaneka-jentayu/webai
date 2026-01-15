@@ -126,12 +126,13 @@ class GoogleSheetsAdmin {
             this.showLoading(true);
             
             // Using Google Sheets API v4
+			alert("Using Google Sheets API v4");
 			//const url = `https://sheets.googleapis.com/v4/spreadsheets/${this.GOOGLE_SHEET_ID}/values/${this.SHEET_NAME}?key=${this.GOOGLE_API_KEY}`;
 			const url = `htps://script.google.com/macros/s/AKfycbwIBnW1AyNovvo1AXfwdG3p_Py7EMN5GRnyC35neSCRFhZBtUTB0PjBRJaCJvRqPRc/exec`;
-			alert('url=' + url);
+			alert("url=" + url);
             const response = await fetch(url);
             const data = await response.json();
-            alert('data=' + data);
+            alert("data=" + data);
             if (data.values && data.values.length > 0) {
                 this.processData(data.values);
             } else {
@@ -752,4 +753,5 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Make admin instance available globally for debugging
     window.adminPanel = admin;
+
 });
