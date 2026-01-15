@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Second-Hitch offers premium curated bundles of second-hand clothing. Sustainable fashion that saves you money and reduces textile waste. Shop quality pre-loved clothing bundles today.">
+    <meta name="keywords" content="second-hand clothing, clothing bundles, sustainable fashion, pre-loved clothes, thrift bundles, affordable fashion, eco-friendly clothing">
+    <title>Second-Hitch | Premium Second-Hand Clothing Bundles</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <i class="fas fa-recycle"></i>
+                    Second-Hitch
+                </a>
+                
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#bundles">Bundles</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact-form">Contact</a></li>
+                    <li><a href="admin.html" class="admin-link"><i class="fas fa-user-cog"></i> Admin</a></li>
+                </ul>
+                
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Premium Second-Hand Clothing Bundles</h1>
+            <p>Discover sustainable fashion with our curated bundles of high-quality, pre-loved clothing. Save money, reduce waste, and look amazing with Second-Hitch clothing bundles.</p>
+            <a href="#bundles" class="btn btn-primary">Shop Bundles</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section features" id="how-it-works">
+        <div class="container">
+            <h2>Why Choose Second-Hitch?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Sustainable Fashion</h3>
+                    <p>Reduce textile waste by choosing pre-loved clothing. Each bundle saves up to 10kg of clothing from landfill.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tags"></i>
+                    </div>
+                    <h3>Affordable Pricing</h3>
+                    <p>Get high-quality clothing at a fraction of retail prices. Our bundles offer up to 70% savings compared to buying new.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h3>Curated Quality</h3>
+                    <p>Every item is carefully inspected, cleaned, and sorted to ensure you receive only the best second-hand clothing.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-box-open"></i>
+                    </div>
+                    <h3>Convenient Bundles</h3>
+                    <p>Choose from themed bundles based on style, season, or occasion. Perfect for refreshing your wardrobe easily.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bundles Section -->
+    <section class="section bundles" id="bundles">
+        <div class="container">
+            <h2>Our Best-Selling Clothing Bundles</h2>
+            <div class="bundles-grid">
+                <div class="bundle-card">
+                    <div class="bundle-img" style="background-image: url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="bundle-content">
+                        <h3>Casual Essentials Bundle</h3>
+                        <p>Perfect for everyday wear. Includes 10 items: jeans, t-shirts, sweaters, and more.</p>
+                        <div class="price">$79.99</div>
+                        <a href="#" class="btn">View Details</a>
+                    </div>
+                </div>
+                
+                <div class="bundle-card">
+                    <div class="bundle-img" style="background-image: url('https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="bundle-content">
+                        <h3>Workwear Bundle</h3>
+                        <p>Professional attire for the office. Includes 8 items: blazers, trousers, blouses, and dresses.</p>
+                        <div class="price">$99.99</div>
+                        <a href="#" class="btn">View Details</a>
+                    </div>
+                </div>
+                
+                <div class="bundle-card">
+                    <div class="bundle-img" style="background-image: url('https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="bundle-content">
+                        <h3>Seasonal Bundle</h3>
+                        <p>Get ready for the season with 12 carefully selected items perfect for the current weather.</p>
+                        <div class="price">$89.99</div>
+                        <a href="#" class="btn">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="section contact-form-section" id="contact-form">
+        <div class="container">
+            <h2>Get In Touch With Us</h2>
+            <p class="section-subtitle">Have questions about our clothing bundles? Want to learn more about sustainable fashion? Send us a message!</p>
+            
+            <div class="form-container">
+                <form id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                            <div class="error-message" id="nameError"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required placeholder="Enter your email address">
+                            <div class="error-message" id="emailError"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number (optional)">
+                            <div class="error-message" id="phoneError"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject *</label>
+                            <select id="subject" name="subject" required>
+                                <option value="" disabled selected>Select a subject</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="order">Order Question</option>
+                                <option value="sizing">Sizing Help</option>
+                                <option value="sustainability">Sustainability Questions</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <div class="error-message" id="subjectError"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" rows="5" required placeholder="Tell us about your inquiry..."></textarea>
+                        <div class="error-message" id="messageError"></div>
+                    </div>
+                    
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="newsletter" name="newsletter">
+                        <label for="newsletter">Yes, I'd like to receive updates about new bundles and sustainable fashion tips</label>
+                    </div>
+                    
+                    <div class="form-submit">
+                        <button type="submit" class="btn btn-primary" id="submitBtn">
+                            <span class="btn-text">Send Message</span>
+                            <span class="loading-spinner" style="display: none;">
+                                <i class="fas fa-spinner fa-spin"></i> Sending...
+                            </span>
+                        </button>
+                    </div>
+                    
+                    <div id="formMessage" class="form-message"></div>
+                </form>
+                
+                <div class="form-info">
+                    <h3>Why Contact Us?</h3>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Get personalized bundle recommendations</li>
+                        <li><i class="fas fa-check-circle"></i> Learn about our sustainability practices</li>
+                        <li><i class="fas fa-check-circle"></i> Get help with sizing and styling</li>
+                        <li><i class="fas fa-check-circle"></i> Inquire about custom bundle options</li>
+                        <li><i class="fas fa-check-circle"></i> Get updates on new arrivals</li>
+                    </ul>
+                    
+                    <div class="contact-details">
+                        <h4>Other Ways to Reach Us</h4>
+                        <p><i class="fas fa-envelope"></i> hello@second-hitch.com</p>
+                        <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+                        <p><i class="fas fa-clock"></i> Mon-Fri: 9am-6pm EST</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials" id="testimonials">
+        <div class="container">
+            <h2>What Our Customers Say</h2>
+            <div class="testimonials-slider">
+                <div class="testimonial active">
+                    <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Customer testimonial" class="customer-img">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"I was skeptical about second-hand clothing bundles, but Second-Hitch changed my mind completely! The quality is amazing and I saved so much money refreshing my wardrobe."</p>
+                    <h4>Sarah M.</h4>
+                </div>
+                
+                <div class="testimonial">
+                    <img src="https://randomuser.me/api/portraits/men/54.jpg" alt="Customer testimonial" class="customer-img">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p>"As someone who cares about sustainability, I love what Second-Hitch is doing. The clothing bundles are well-curated and everything arrived in excellent condition. Will definitely order again!"</p>
+                    <h4>James L.</h4>
+                </div>
+                
+                <div class="testimonial">
+                    <img src="https://randomuser.me/api/portraits/women/67.jpg" alt="Customer testimonial" class="customer-img">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"The workwear bundle was exactly what I needed for my new job. The pieces were stylish, professional, and in perfect condition. I'm so impressed with the value!"</p>
+                    <h4>Michelle R.</h4>
+                </div>
+            </div>
+            
+            <div class="slider-controls">
+                <div class="slider-dot active" data-slide="0"></div>
+                <div class="slider-dot" data-slide="1"></div>
+                <div class="slider-dot" data-slide="2"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta">
+        <div class="container">
+            <h2>Ready to Refresh Your Wardrobe Sustainably?</h2>
+            <p>Join thousands of satisfied customers who are saving money and the planet with Second-Hitch clothing bundles. Sign up today and get 15% off your first order!</p>
+            <a href="#" class="btn">Get Your Bundle Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Second-Hitch</h3>
+                    <p>Premium second-hand clothing bundles for the conscious consumer. Sustainable fashion that doesn't compromise on style or quality.</p>
+                    <div style="margin-top: 20px;">
+                        <a href="#" style="color: white; margin-right: 15px; font-size: 1.3rem;"><i class="fab fa-facebook"></i></a>
+                        <a href="#" style="color: white; margin-right: 15px; font-size: 1.3rem;"><i class="fab fa-instagram"></i></a>
+                        <a href="#" style="color: white; margin-right: 15px; font-size: 1.3rem;"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#bundles">Bundles</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact-form">Contact Form</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope" style="margin-right: 10px;"></i> hello@second-hitch.com</li>
+                        <li><i class="fas fa-phone" style="margin-right: 10px;"></i> (555) 123-4567</li>
+                        <li><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> 123 Green Street, Eco City</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Second-Hitch. All rights reserved. | Sustainable Fashion | Second-Hand Clothing Bundles</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="form-handler.js"></script>
+</body>
+</html>

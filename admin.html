@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Second-Hitch Admin | Contact Form Submissions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="admin-styles.css">
+</head>
+<body>
+    <!-- Admin Header -->
+    <header class="admin-header">
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <i class="fas fa-recycle"></i>
+                    Second-Hitch Admin
+                </a>
+                
+                <ul class="nav-links">
+                    <li><a href="index.html"><i class="fas fa-home"></i> Back to Site</a></li>
+                    <li><a href="#dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href="#submissions" class="active"><i class="fas fa-inbox"></i> Submissions</a></li>
+                    <li><a href="#analytics"><i class="fas fa-chart-bar"></i> Analytics</a></li>
+                    <li><a href="#settings"><i class="fas fa-cog"></i> Settings</a></li>
+                    <li><button id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</button></li>
+                </ul>
+                
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Admin Main Content -->
+    <main class="admin-main">
+        <div class="container">
+            <!-- Page Header -->
+            <div class="page-header">
+                <h1><i class="fas fa-inbox"></i> Contact Form Submissions</h1>
+                <p>View and manage all customer inquiries submitted through the contact form</p>
+                
+                <div class="header-actions">
+                    <div class="stats-cards">
+                        <div class="stat-card">
+                            <div class="stat-icon total">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 id="totalSubmissions">0</h3>
+                                <p>Total Submissions</p>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon today">
+                                <i class="fas fa-calendar-day"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 id="todaySubmissions">0</h3>
+                                <p>Today's Submissions</p>
+                            </div>
+                        </div>
+ 
+                        <div class="stat-card">
+                            <div class="stat-icon unread">
+                                <i class="fas fa-eye-slash"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 id="unreadSubmissions">0</h3>
+                                <p>Unread Messages</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="action-buttons">
+                        <button id="refreshBtn" class="btn btn-primary">
+                            <i class="fas fa-sync-alt"></i> Refresh Data
+                        </button>
+                        <button id="exportBtn" class="btn btn-secondary">
+                            <i class="fas fa-download"></i> Export to CSV
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filters and Search -->
+            <div class="filters-section">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Search submissions...">
+                </div>
+                
+                <div class="filter-controls">
+                    <div class="filter-group">
+                        <label for="dateFilter"><i class="fas fa-calendar"></i> Date Range:</label>
+                        <select id="dateFilter">
+                            <option value="all">All Time</option>
+                            <option value="today">Today</option>
+                            <option value="week">This Week</option>
+                            <option value="month">This Month</option>
+                            <option value="custom">Custom Range</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="subjectFilter"><i class="fas fa-tag"></i> Subject:</label>
+                        <select id="subjectFilter">
+                            <option value="all">All Subjects</option>
+                            <option value="general">General Inquiry</option>
+                            <option value="order">Order Question</option>
+                            <option value="sizing">Sizing Help</option>
+                            <option value="sustainability">Sustainability</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="statusFilter"><i class="fas fa-eye"></i> Status:</label>
+                        <select id="statusFilter">
+                            <option value="all">All Status</option>
+                            <option value="unread">Unread</option>
+                            <option value="read">Read</option>
+                            <option value="replied">Replied</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Table -->
+            <div class="table-container">
+                <div class="table-header">
+                    <h3><i class="fas fa-table"></i> Submissions Table</h3>
+                    <div class="table-info">
+                        <span id="tableCount">0</span> records found
+                    </div>
+                </div>
+                
+                <div class="table-responsive">
+                    <table id="submissionsTable">
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox" id="selectAll"></th>
+                                <th data-sort="timestamp">Timestamp <i class="fas fa-sort"></i></th>
+                                <th data-sort="name">Name <i class="fas fa-sort"></i></th>
+                                <th data-sort="email">Email <i class="fas fa-sort"></i></th>
+                                <th data-sort="phone">Phone <i class="fas fa-sort"></i></th>
+                                <th data-sort="subject">Subject <i class="fas fa-sort"></i></th>
+                                <th data-sort="message">Message <i class="fas fa-sort"></i></th>
+                                <th data-sort="newsletter">Newsletter <i class="fas fa-sort"></i></th>
+                                <th data-sort="status">Status <i class="fas fa-sort"></i></th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                            <!-- Data will be populated by JavaScript -->
+                            <tr id="loadingRow">
+                                <td colspan="10" class="loading-cell">
+                                    <div class="loading-spinner">
+                                        <i class="fas fa-spinner fa-spin"></i>
+                                        <span>Loading submissions data...</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Pagination -->
+                <div class="pagination">
+                    <div class="pagination-info">
+                        Showing <span id="startRow">0</span> to <span id="endRow">0</span> of <span id="totalRows">0</span> entries
+                    </div>
+                    <div class="pagination-controls">
+                        <button id="firstPage" class="pagination-btn" disabled>
+                            <i class="fas fa-angle-double-left"></i>
+                        </button>
+                        <button id="prevPage" class="pagination-btn" disabled>
+                            <i class="fas fa-angle-left"></i>
+                        </button>
+                        <div class="page-numbers" id="pageNumbers"></div>
+                        <button id="nextPage" class="pagination-btn" disabled>
+                            <i class="fas fa-angle-right"></i>
+                        </button>
+                        <button id="lastPage" class="pagination-btn" disabled>
+                            <i class="fas fa-angle-double-right"></i>
+                        </button>
+                    </div>
+                    <div class="page-size">
+                        <label for="rowsPerPage">Rows per page:</label>
+                        <select id="rowsPerPage">
+                            <option value="10">10</option>
+                            <option value="25" selected>25</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bulk Actions -->
+            <div class="bulk-actions">
+                <div class="selected-count">
+                    <span id="selectedCount">0</span> submissions selected
+                </div>
+                <div class="bulk-buttons">
+                    <button id="markReadBtn" class="btn btn-secondary" disabled>
+                        <i class="fas fa-eye"></i> Mark as Read
+                    </button>
+                    <button id="markRepliedBtn" class="btn btn-secondary" disabled>
+                        <i class="fas fa-reply"></i> Mark as Replied
+                    </button>
+                    <button id="deleteSelectedBtn" class="btn btn-danger" disabled>
+                        <i class="fas fa-trash"></i> Delete Selected
+                    </button>
+                </div>
+            </div>
+
+            <!-- Modal for Viewing Submission Details -->
+            <div id="detailsModal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3><i class="fas fa-file-alt"></i> Submission Details</h3>
+                        <button class="modal-close">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="details-grid">
+                            <div class="detail-item">
+                                <label><i class="fas fa-user"></i> Name:</label>
+                                <span id="detailName">-</span>
+                            </div>
+                            <div class="detail-item">
+                                <label><i class="fas fa-envelope"></i> Email:</label>
+                                <span id="detailEmail">-</span>
+                            </div>
+                            <div class="detail-item">
+                                <label><i class="fas fa-phone"></i> Phone:</label>
+                                <span id="detailPhone">-</span>
+                            </div>
+                            <div class="detail-item">
+                                <label><i class="fas fa-tag"></i> Subject:</label>
+                                <span id="detailSubject">-</span>
+                            </div>
+                            <div class="detail-item">
+                                <label><i class="fas fa-calendar"></i> Submitted:</label>
+                                <span id="detailTimestamp">-</span>
+                            </div>
+                            <div class="detail-item">
+                                <label><i class="fas fa-newspaper"></i> Newsletter:</label>
+                                <span id="detailNewsletter">-</span>
+                            </div>
+                            <div class="detail-item full-width">
+                                <label><i class="fas fa-comment"></i> Message:</label>
+                                <div class="message-content" id="detailMessage">-</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="replyBtn" class="btn btn-primary">
+                            <i class="fas fa-reply"></i> Reply via Email
+                        </button>
+                        <button id="markAsReadBtn" class="btn btn-secondary">
+                            <i class="fas fa-eye"></i> Mark as Read
+                        </button>
+                        <button class="btn btn-close">Close</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- No Data Message -->
+            <div id="noDataMessage" class="no-data-message" style="display: none;">
+                <i class="fas fa-inbox"></i>
+                <h3>No submissions found</h3>
+                <p>There are no contact form submissions matching your filters.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="admin-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p><i class="fas fa-shield-alt"></i> Admin Panel v1.0 | Secure Connection</p>
+                    <p><i class="fas fa-database"></i> Connected to Google Sheets | Last Updated: <span id="lastUpdated">-</span></p>
+                </div>
+                <div class="footer-links">
+                    <a href="#"><i class="fas fa-question-circle"></i> Help</a>
+                    <a href="#"><i class="fas fa-book"></i> Documentation</a>
+                    <a href="#"><i class="fas fa-bug"></i> Report Issue</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="admin-script.js"></script>
+</body>
+</html>
