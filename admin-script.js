@@ -144,7 +144,8 @@ class GoogleSheetsAdmin {
             const data = await response.json();
 			alert("data" + data);
 			const sjson = JSON.stringify(data)
-            alert("data=" + sjson);
+            alert("sjsondata=" + sjson);
+			
             if (sjson && sjson.length > 0) {
                 this.processData(data.values);
             } else {
@@ -767,6 +768,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.adminPanel = admin;
 
 });
+
 
 
 
