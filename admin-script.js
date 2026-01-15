@@ -131,7 +131,7 @@ class GoogleSheetsAdmin {
 			alert('url='+url);
             const response = await fetch(url);
             const data = await response.json();
-            
+            alert('data'+data);
             if (data.values && data.values.length > 0) {
                 this.processData(data.values);
             } else {
