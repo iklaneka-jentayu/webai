@@ -128,30 +128,38 @@ class GoogleSheetsAdmin {
             // Using Google Sheets API v4
 			alert("Using Google Sheets API v4 - v5");
 			
-			// const url = `https://sheets.googleapis.com/v4/spreadsheets/${this.GOOGLE_SHEET_ID}/values/${this.SHEET_NAME}?key=${this.GOOGLE_API_KEY}`;
-            //if (data.values && data.values.length > 0) {
-            //    this.processData(data.values);
-            //} else {
-            //   this.submissions = [];
-            //   this.showNoDataMessage();
-            //}
-			
-			const url = `https://script.google.com/macros/s/AKfycbwIBnW1AyNovvo1AXfwdG3p_Py7EMN5GRnyC35neSCRFhZBtUTB0PjBRJaCJvRqPRc/exec`;
-			// const url = `https://script.googleusercontent.com/macros/echo?user_content_key=AehSKLjur3hn0uMKzZYs9GP4y5bfh9cgpQLEpVTQitjZAcVZI-M-OboOQt-06v7LxVhbzy6GgLfktOL369kWMvn2bxzfmeGI3O6NSuDcy6lCZGBNzsUia8yVZmn1r70gyEhXSJ0WiVfh0PI5cloQ1xbOTyFzrq28A5UimZSqObBVjNbAyY_EBV66O_Et8omtE9yjAbAoOJJvvbvfIzbnGiG6cZi40Ze0y2a77s2nZJiQB1epFeRmtVSFh4_T3TWH6shUjxgdJyYXQEmOxlLdJ3qJTSKqofYXIQ&lib=Mimq5teosh10tDrGNuVTSo7lIegck0cyW`;
-			
+			const url = `https://sheets.googleapis.com/v4/spreadsheets/${this.GOOGLE_SHEET_ID}/values/${this.SHEET_NAME}?key=${this.GOOGLE_API_KEY}`;
 			alert("url=" + url);
-            const response = await fetch(url);
+			
+			const response = await fetch(url);
             const data = await response.json();
 			alert("data" + data);
 			const sjson = JSON.stringify(data)
             alert("sjsondata=" + sjson);
 			
-            if (sjson && sjson.length > 0) {
+            if (data.values && data.values.length > 0) {
                 this.processData(data.values);
             } else {
-                this.submissions = [];
-                this.showNoDataMessage();
+               this.submissions = [];
+               this.showNoDataMessage();
             }
+			
+			// const url = `https://script.google.com/macros/s/AKfycbwIBnW1AyNovvo1AXfwdG3p_Py7EMN5GRnyC35neSCRFhZBtUTB0PjBRJaCJvRqPRc/exec`;
+			// const url = `https://script.googleusercontent.com/macros/echo?user_content_key=AehSKLjur3hn0uMKzZYs9GP4y5bfh9cgpQLEpVTQitjZAcVZI-M-OboOQt-06v7LxVhbzy6GgLfktOL369kWMvn2bxzfmeGI3O6NSuDcy6lCZGBNzsUia8yVZmn1r70gyEhXSJ0WiVfh0PI5cloQ1xbOTyFzrq28A5UimZSqObBVjNbAyY_EBV66O_Et8omtE9yjAbAoOJJvvbvfIzbnGiG6cZi40Ze0y2a77s2nZJiQB1epFeRmtVSFh4_T3TWH6shUjxgdJyYXQEmOxlLdJ3qJTSKqofYXIQ&lib=Mimq5teosh10tDrGNuVTSo7lIegck0cyW`;
+			
+			//alert("url=" + url);
+            //const response = await fetch(url);
+            //const data = await response.json();
+			//alert("data" + data);
+			//const sjson = JSON.stringify(data)
+            //alert("sjsondata=" + sjson);
+			
+            //if (sjson && sjson.length > 0) {
+            //    this.processData(data.values);
+            //} else {
+            //    this.submissions = [];
+            //    this.showNoDataMessage();
+            //}
             
             this.filterData();
             this.showLoading(false);
@@ -768,6 +776,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.adminPanel = admin;
 
 });
+
 
 
 
