@@ -128,7 +128,8 @@ class GoogleSheetsAdmin {
             // Using Google Sheets API v4
 			alert("Using Google Sheets API v4 - v5");
 			
-			const url = `https://sheets.googleapis.com/v4/spreadsheets/${this.GOOGLE_SHEET_ID}/values/${this.SHEET_NAME}?key=${this.GOOGLE_API_KEY}`;
+			// const url = `https://sheets.googleapis.com/v4/spreadsheets/${this.GOOGLE_SHEET_ID}/values/${this.SHEET_NAME}?key=${this.GOOGLE_API_KEY}`;
+			const url = `https://script.google.com/macros/s/AKfycbwIBnW1AyNovvo1AXfwdG3p_Py7EMN5GRnyC35neSCRFhZBtUTB0PjBRJaCJvRqPRc/exec`;
 			alert("url=" + url);
 			
 			const response = await fetch(url);
@@ -776,6 +777,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.adminPanel = admin;
 
 });
+
 
 
 
